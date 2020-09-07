@@ -1,0 +1,31 @@
+export const lightTheme = {
+  body: '#f6f7f9',
+  text: '#1F1F1F',
+  blockquote: '#313B53',
+  blockquoteBorder: '#1d2227AF',
+  blockquoteText: '#f6f7f9',
+  toggleBorder: '#FFF',
+  toggle: '#000',
+  title: '#c14c6f',
+  border: '#525150',
+  gradient: 'linear-gradient(#39598A, #79D7ED)',
+  fontPrimary: 'Arvo',
+  fontSecondary: 'Poppins',
+  borderShadow: 'rgba(0, 0, 0, 0.3)',
+};
+
+export const darkTheme = {
+  body: '#1d2227',
+  text: '#e0e0e0',
+  blockquote: '#f9f9f9',
+  blockquoteText: '#1d2227',
+  blockquoteBorder: '#A6ACB2',
+  toggleBorder: '#6B8096',
+  toggle: '#FFF',
+  title: '#df7296',
+  border: '#525150',
+  gradient: 'linear-gradient(90deg, #11998e 0%,#38ef7d 100% )',
+  fontPrimary: 'Arvo',
+  fontSecondary: 'Poppins',
+  borderShadow: 'rgba(250, 250, 250, 0.5)',
+};
