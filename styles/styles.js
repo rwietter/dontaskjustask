@@ -82,10 +82,9 @@ const footer = styled.footer`
   height: 100px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   font-family: ${({ theme }) => theme.fontPrimary};
   font-size: clamp(10px, 1.5vw, 0.8rem);
-  margin-bottom: 30px;
   a {
     cursor: pointer;
     font-size: clamp(10px, 1.5vw, 0.7rem);
