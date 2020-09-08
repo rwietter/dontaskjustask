@@ -9,6 +9,7 @@ const ToggleContainer = styled.button`
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   overflow: hidden;
   padding: 0 0.05rem;
   position: relative;
@@ -25,6 +26,7 @@ const ToggleContainer = styled.button`
     /* moon */
     &:nth-child(2) {
       transform: ${({ lightTheme }) => lightTheme ? 'translateY(-100px)' : 'translateY(0)'};
+      margin-top: 2%;
     }
   }
   @media (max-width: 1000px) {

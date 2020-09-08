@@ -2,7 +2,7 @@ export const lightTheme = {
   body: '#f6f7f9',
   text: '#1F1F1F',
   blockquote: '#313B53',
-  blockquoteBorder: '#1d2227AF',
+  blockquoteBorder: '#3e4b6a',
   blockquoteText: '#f6f7f9',
   toggleBorder: '#FFF',
   toggle: '#000',

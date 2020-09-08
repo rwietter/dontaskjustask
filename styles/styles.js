@@ -72,25 +72,27 @@ const section = styled.section`
     li {
       cursor: pointer;
       margin: 5px 0;
+      max-width: max-content;
     }
   }
 `;
 
 const footer = styled.footer`
   width: 100%;
-  height: 50px;
+  height: 100px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   font-family: ${({ theme }) => theme.fontPrimary};
   font-size: clamp(10px, 1.5vw, 0.8rem);
+  margin-bottom: 30px;
   a {
     cursor: pointer;
     font-size: clamp(10px, 1.5vw, 0.7rem);
     font-weight: 600;
   }
-  img {
-    color: ${({ theme }) => theme.text};
+  svg {
+    fill: ${({ theme }) => theme.text};
   }
 `;
 
