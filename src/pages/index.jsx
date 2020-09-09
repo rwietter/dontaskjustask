@@ -44,6 +44,23 @@ export default function Home() {
       <Head>
         <title>Não peça se alguém sabe, apenas pergunte</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta charset="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <meta name="description" content="Description" />
+        <meta name="keywords" content="Keywords" />
+        <link rel="manifest" href="/manifest.json" />
+        <link
+          href="../../public/favicon.ico"
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+        />
+        <link rel="apple-touch-icon" href="../../public/favicon.ico"></link>
+        <meta name="theme-color" content="#1d2227" />
       </Head>
 
       <S.progress className="progress-container">

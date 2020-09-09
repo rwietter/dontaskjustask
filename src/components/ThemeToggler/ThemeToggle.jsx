@@ -2,8 +2,8 @@ import React from 'react';
 import { func, string } from 'prop-types';
 
 import { ToggleContainer } from './styles';
-import MoonIcon from '../../icons/moon.svg';
-import SunIcon from '../../icons/sun.svg';
+import MoonIcon from '../../../public/icons/moon.svg';
+import SunIcon from '../../../public/icons/sun.svg';
 
 function ToggleMode({ theme, toggleTheme }) {
   const isLight = theme === 'light';

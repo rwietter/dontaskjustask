@@ -1,0 +1,31 @@
+{
+  "short_name": "Full Question",
+  "name": "Full Question",
+  "description": "Full Question is a small guide to create good questions",
+  "icons": [
+    {
+      "src": "/public/icons/question@128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/public/icons/question@512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "https://dontaskjustask-d9hdboq4e.vercel.app/",
+  "background_color": "#1d2227",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#f6f7f9",
+  "shortcuts": [
+    {
+      "name": "Full Question",
+      "short_name": "Full Question",
+      "description": "Full Question",
+      "url": "https://dontaskjustask-d9hdboq4e.vercel.app/",
+      "icons": [{ "src": "/public/icons/question@128.png", "sizes": "128x128" }]
+    }
+  ]
+}

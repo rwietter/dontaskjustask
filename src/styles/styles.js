@@ -77,6 +77,7 @@ const section = styled.section`
       max-width: max-content;
       font-family: ${({ theme }) => theme.fontPrimary};
       font-size: clamp(13px, 2vw, 1rem);
+      line-height: 1.7rem;
     }
   }
 `;
