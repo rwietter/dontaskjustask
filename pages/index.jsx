@@ -1,60 +1,43 @@
 import Head from 'next/head';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import * as S from '../styles/styles';
 import { Blockquote } from '../components/Blockquote/Blockquote';
 
 export default function Home() {
-  const [height, setHeight] = useState(0);
-  const dateYear = new Date().getFullYear();
+  const [scroll, setScroll] = useState(0);
+  let [current, setCurrent] = useState(0);
+  const [year, setYear] = useState(0);
 
-  const _MAIN = document.querySelector('#main');
-  const _SPAN = document.createElement('span');
-
-  const MAX_HEIGHT = new Promise((resolve, _) => {
-    const height = _MAIN?.offsetHeight;
-    const interval = setInterval(() => {
-      resolve(height);
-      clearInterval(interval);
-    }, 500);
-  });
-  MAX_HEIGHT.then(setHeight);
+  const progressBar = () => document.querySelector('#statusbar');
 
   useEffect(() => {
-    const styleBar = [
-      `
-      height: 5px;
-      background-color: #2dc25c;
-      position: fixed;
-      top: 0;
-      left: 0px;
-      transition: all 0.5s ease-out 0s;
-      width: 0;
-    `,
-    ];
-    _SPAN.style = styleBar;
-    document.body.appendChild(_SPAN);
-  });
+    const dateYear = new Date().getFullYear();
+    setYear(dateYear);
+  }, []);
 
-  const updateStyleBar = (width) => {
-    _SPAN.style.width = `${width}%`;
-    window.localStorage.setItem('statusbar', width);
-  };
-
-  const handleScroll = (width) => {
-    const positionYoffScroll = window.pageYOffset;
-    const updateWidthStyleBar = Math.ceil((positionYoffScroll * 140) / height);
-    if (width) updateStyleBar(width);
-    else updateStyleBar(updateWidthStyleBar);
-  };
-
-  const stylebar = localStorage.getItem('statusbar');
-  if (stylebar) {
-    handleScroll(stylebar);
+  async function updateProgressBar(scroll) {
+    progressBar().style.width = `${scroll}%`;
+    localStorage.setItem('progress', scroll);
   }
 
-  document.addEventListener('scroll', () => {
-    handleScroll();
-  });
+  const { scrollY } = window;
+
+  function calcHeight() {
+    const { scrollTop, clientHeight, scrollHeight } = document?.documentElement;
+
+    const winScroll = scrollTop || scrollY;
+    const height = scrollHeight - clientHeight;
+    const scrolled = Math.ceil((winScroll / height) * 100);
+
+    if (scrolled) {
+      setScroll(scrolled);
+      updateProgressBar(scrolled);
+    }
+  }
+
+  let progress = Number(localStorage.getItem('progress'));
+
+  onscroll = calcHeight;
 
   return (
     <div id="content">
@@ -63,7 +46,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <S.main id="main">
+      <S.progress className="progress-container">
+        <span className="progress-bar" id="statusbar"></span>
+      </S.progress>
+
+      <S.main>
         <S.content>
           <h1>Não faça esse tipo de pergunta</h1>
           <p>
@@ -74,10 +61,12 @@ export default function Home() {
             levar horas ou dias, além disso, menos pessoas vão se engajar para
             lhe ajudar.
           </p>
-          <Blockquote>Foo234: Alguém sabe Java ?</Blockquote>
-          <Blockquote>Foo655: Alguém pode me ajudar com C ?</Blockquote>
-          <Blockquote>Foo910: Preciso de ajuda em um exercício ?</Blockquote>
-          <Blockquote>
+          <Blockquote id="1">Foo234: Alguém sabe Java ?</Blockquote>
+          <Blockquote id="2">Foo655: Alguém pode me ajudar com C ?</Blockquote>
+          <Blockquote id="3">
+            Foo910: Preciso de ajuda em um exercício ?
+          </Blockquote>
+          <Blockquote id="4">
             Foo02: Estou com uma dúvida, alguém disponível para responder ?
           </Blockquote>
         </S.content>
@@ -90,7 +79,7 @@ export default function Home() {
             <span>
               <a
                 target="_blank"
-                without
+                without="true"
                 rel="noopener noreferrer"
                 href="https://google.com.br/">
                 Google
@@ -98,7 +87,7 @@ export default function Home() {
               ,{' '}
               <a
                 target="_blank"
-                without
+                without="true"
                 rel="noopener noreferrer"
                 href="https://duckduckgo.com/">
                 DuckDuckGo
@@ -108,7 +97,7 @@ export default function Home() {
             ). Além disso, é extremamente importante que você forneça o que{' '}
             <a
               target="_blank"
-              without
+              without="true"
               rel="noopener noreferrer"
               href="https://en.wikipedia.org/wiki/XY_problem">
               você tem e o que você quer ter
@@ -121,7 +110,7 @@ export default function Home() {
             pesquisando em inglês, existem vários{' '}
             <a
               target="_blank"
-              without
+              without="true"
               rel="noopener noreferrer"
               href="https://stackoverflow.com/questions">
               fóruns
@@ -129,7 +118,7 @@ export default function Home() {
             e{' '}
             <a
               target="_blank"
-              without
+              without="true"
               rel="noopener noreferrer"
               href="https://github.com/explore">
               issues
@@ -150,11 +139,12 @@ export default function Home() {
         <S.content>
           <h2>Faça esse tipo de pergunta</h2>
           <Blockquote id="question">
-            Foo49: Estou tendo o seguinte [problema] no Java, estou tentando
-            fazer X e obtendo Z quando, na verdade, queria obter Y. Já tentei
-            fazer [isso], pesquisei nas seguintes [fontes], mas não consegui
-            resolver o problema, aqui estão os screenshots, links e logs para
-            mais detalhes. Se alguém puder me ajudar, agradeço desde já!
+            Foo49: Estou tendo o seguinte [problema] com a Tecnologia XYZ, estou
+            tentando fazer X e obtendo Z quando, na verdade, queria obter Y. Já
+            tentei fazer [isso], pesquisei nas seguintes [fontes], mas não
+            consegui resolver o problema, aqui estão os screenshots, links e
+            logs para mais detalhes. Se alguém puder me ajudar, agradeço desde
+            já!
           </Blockquote>
         </S.content>
 
@@ -162,36 +152,36 @@ export default function Home() {
           <p>
             Abaixo estão alguns links úteis que você pode utilizar para enviar
             logs e detalhes do problema.
-            <ul>
-              <li>
-                <a
-                  target="_blank"
-                  without
-                  rel="noopener noreferrer"
-                  href="https://carbon.now.sh/">
-                  Carbon
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  without
-                  rel="noopener noreferrer"
-                  href="https://pastebin.com/">
-                  Pastebin
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  without
-                  rel="noopener noreferrer"
-                  href="https://gist.github.com/">
-                  GitHub Gist
-                </a>
-              </li>
-            </ul>
           </p>
+          <ul>
+            <li>
+              <a
+                target="_blank"
+                without="true"
+                rel="noopener noreferrer"
+                href="https://carbon.now.sh/">
+                Carbon
+              </a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                without="true"
+                rel="noopener noreferrer"
+                href="https://pastebin.com/">
+                Pastebin
+              </a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                without="true"
+                rel="noopener noreferrer"
+                href="https://gist.github.com/">
+                GitHub Gist
+              </a>
+            </li>
+          </ul>
         </S.section>
 
         <S.section>
@@ -199,7 +189,7 @@ export default function Home() {
             Por fim, se você quiser se aprofundar um pouco mais, leia{' '}
             <a
               target="_blank"
-              without
+              without="true"
               rel="noopener noreferrer"
               href="http://catb.org/~esr/faqs/smart-questions.html">
               isto
@@ -210,10 +200,11 @@ export default function Home() {
       </S.main>
 
       <S.footer>
-        NPASAP@{dateYear}
+        NPASAP@{year}
         <a
           href="https://github.com/users/rwietter"
           target="_blank"
+          without="true"
           rel="noopener noreferrer">
           <svg
             xmlns="http://www.w3.org/2000/svg"

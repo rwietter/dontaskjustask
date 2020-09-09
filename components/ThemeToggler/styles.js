@@ -26,7 +26,7 @@ const ToggleContainer = styled.button`
     /* moon */
     &:nth-child(2) {
       transform: ${({ lightTheme }) => lightTheme ? 'translateY(-100px)' : 'translateY(0)'};
-      margin-top: 2%;
+      margin: 1px 0.7px 0 0;
     }
   }
   @media (max-width: 1000px) {

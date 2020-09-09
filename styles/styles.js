@@ -35,17 +35,18 @@ const main = styled.main`
 
 // main
 const content = styled.section`
-  line-height: 1.4rem;
+  line-height: 1.8rem;
   h1,
   h2 {
     font-family: ${({ theme }) => theme.fontPrimary};
-    font-size: clamp(16px, 2vw, 1.5em);
+    font-size: clamp(14px, 2vw, 1.4em);
     font-weight: 700;
   }
   p {
     font-size: clamp(12px, 2vw, 1em);
     font-family: ${({ theme }) => theme.fontSecondary};
     font-weight: 500;
+    line-height: 1.5rem;
     @media (min-width: 1000px) {
       line-height: 1.7em;
       margin: 2rem 0 2rem 0;
@@ -60,8 +61,9 @@ const section = styled.section`
     font-size: clamp(12px, 2vw, 1em);
     font-family: ${({ theme }) => theme.fontSecondary};
     font-weight: 500;
+    line-height: 1.5rem;
     @media (min-width: 1000px) {
-      line-height: 1.7em;
+      line-height: 1.7rem;
       margin: 0 0 1.5rem 0;
       text-align: justify;
     }
@@ -73,6 +75,8 @@ const section = styled.section`
       cursor: pointer;
       margin: 5px 0;
       max-width: max-content;
+      font-family: ${({ theme }) => theme.fontPrimary};
+      font-size: clamp(13px, 2vw, 1rem);
     }
   }
 `;
@@ -95,4 +99,23 @@ const footer = styled.footer`
   }
 `;
 
-export { main, container, footer, content, section };
+const progress = styled.div`
+  width: 100%;
+  height: 8px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+
+  span {
+    height: 8px;
+    background: #333333;
+    transition: background-image 0.3s ease;
+    background: ${({ theme }) => theme.gradient};
+    width: 0%;
+    position: fixed;
+    opacity: 0.6;
+  }
+`;
+
+export { main, container, footer, content, section, progress };

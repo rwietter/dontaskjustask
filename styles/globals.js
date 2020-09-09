@@ -1,8 +1,17 @@
 /* eslint-disable max-len */
 import { createGlobalStyle } from 'styled-components';
 
+import Inter_Regular from '../fonts/Inter_Web/Inter-Regular.woff2';
+import Inter_SemiBold from '../fonts/Inter_Web/Inter-SemiBold.woff2';
+import Inter_Bold from '../fonts/Inter_Web/Inter-Bold.woff2';
+
 const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,400;0,500;1,500&display=swap');
+  @font-face {
+    font-family: 'Inter';
+    src: url(${Inter_Regular}) format('woff2'),
+    url(${Inter_SemiBold}) format('woff2'),
+    url(${Inter_Bold}) format('woff2')
+  }
   
   *,
   *::after,

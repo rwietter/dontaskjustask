@@ -12,6 +12,7 @@ const header = styled.header`
     margin: 2rem 0 0 0;
     font-size: clamp(14px, 2vw, 1.4rem);
     font-family: ${({ theme }) => theme.fontSecondary};
+    font-weight: 700;
     color: ${({ theme }) => theme.title};
   }
 `;

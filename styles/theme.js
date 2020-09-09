@@ -8,9 +8,9 @@ export const lightTheme = {
   toggle: '#000',
   title: '#c14c6f',
   border: '#525150',
-  gradient: 'linear-gradient(#39598A, #79D7ED)',
-  fontPrimary: 'Arvo',
-  fontSecondary: 'Poppins',
+  gradient: 'linear-gradient(135deg, #c14c6f 10%, #df7296 100%)',
+  fontPrimary: 'Inter',
+  fontSecondary: 'Inter',
   borderShadow: 'rgba(0, 0, 0, 0.3)',
 };
 
@@ -24,8 +24,8 @@ export const darkTheme = {
   toggle: '#FFF',
   title: '#df7296',
   border: '#525150',
-  gradient: 'linear-gradient(90deg, #11998e 0%,#38ef7d 100% )',
-  fontPrimary: 'Arvo',
-  fontSecondary: 'Poppins',
+  gradient: 'linear-gradient(135deg, #c14c6f 10%, #df7296 100%)',
+  fontPrimary: 'Inter',
+  fontSecondary: 'Inter',
   borderShadow: 'rgba(250, 250, 250, 0.5)',
 };
