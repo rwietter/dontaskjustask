@@ -8,11 +8,13 @@ const container = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  margin: 0 auto;
   @media (min-width: 650px) {
-    max-width: 70vw;
+    max-width: 70%;
   }
   @media (min-width: 1000px) {
-    max-width: 50vw;
+    max-width: 50%;
+    padding: 0;
   }
 `;
 
@@ -45,7 +47,6 @@ const content = styled.section`
   p {
     font-size: clamp(12px, 2vw, 1em);
     font-family: ${({ theme }) => theme.fontSecondary};
-    font-weight: 500;
     line-height: 1.5rem;
     @media (min-width: 1000px) {
       line-height: 1.7em;

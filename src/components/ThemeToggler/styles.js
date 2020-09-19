@@ -11,39 +11,27 @@ const ToggleContainer = styled.button`
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
-  padding: 0 0.05rem;
   position: relative;
-  width: 3rem;
-  height: 1.2rem;
+  width: 3.3rem;
+  height: 1.5rem;
   img {
-    height: 1.2rem;
-    width: 1rem;
-    transition: all 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035);
-    /* sun */
-    &:first-child {
-      transform: ${({ lightTheme }) => lightTheme ? 'translateY(0)' : 'translateY(100px)'};
-    }
-    /* moon */
-    &:nth-child(2) {
-      transform: ${({ lightTheme }) => lightTheme ? 'translateY(-100px)' : 'translateY(0)'};
-      margin: 1px 0.7px 0 0;
-    }
+    height: 1.1rem;
+    width: 1.1rem;
+    transition: transform 0.3s ease;
+    transform: ${({ lightTheme }) =>
+      lightTheme ? 'translateY(0)' : 'translateY(100px)'};
   }
-  @media (max-width: 1000px) {
-    width: 2.4rem;
-    height: 0.8rem;
-    img {
-      height: 0.8rem;
-      width: 0.7rem;
-    }
+  img:first-child {
+    position: absolute;
+    top: 3px;
+    left: 4px;
   }
-  @media (min-width: 200px) and (max-width: 400px) {
-    min-width: 2.5rem;
-    height: 1rem;
-    img {
-      height: 1rem;
-      width: 1rem;
-    }
+  img:nth-child(2) {
+    transform: ${({ lightTheme }) =>
+      lightTheme ? 'translateY(-100px)' : 'translateY(0)'};
+    position: absolute;
+    top: 3px;
+    right: 3px;
   }
 `;
 

@@ -15,16 +15,15 @@ export default function Home() {
     setYear(dateYear);
   }, []);
 
-  async function updateProgressBar(scroll) {
+  function updateProgressBar(scroll) {
     progressBar().style.width = `${scroll}%`;
     localStorage.setItem('progress', scroll);
   }
 
-  const { scrollY } = window;
 
   function calcHeight() {
     const { scrollTop, clientHeight, scrollHeight } = document?.documentElement;
-
+    const { scrollY } = window;
     const winScroll = scrollTop || scrollY;
     const height = scrollHeight - clientHeight;
     const scrolled = Math.ceil((winScroll / height) * 100);
@@ -35,8 +34,6 @@ export default function Home() {
     }
   }
 
-  let progress = Number(localStorage.getItem('progress'));
-
   onscroll = calcHeight;
 
   return (
@@ -44,23 +41,67 @@ export default function Home() {
       <Head>
         <title>Não peça se alguém sabe, apenas pergunte</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta charset="utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="application-name" content="PWA App" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="PWA App" />
+        <meta name="description" content="Best PWA App in the world" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="msapplication-TileColor" content="#2B5797" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="theme-color" content="#000000" />
         <meta
           name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+          content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
         />
-        <meta name="description" content="Description" />
-        <meta name="keywords" content="Keywords" />
-        <link rel="manifest" href="/manifest.json" />
+
         <link
-          href="../../public/favicon.ico"
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/static/icons/question@128.png"
+        />
+        <link
           rel="icon"
           type="image/png"
           sizes="32x32"
+          href="/static/icons/question@128.png"
         />
-        <link rel="apple-touch-icon" href="../../public/favicon.ico"></link>
-        <meta name="theme-color" content="#1d2227" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/static/icons/question@128.png"
+        />
+        <link
+          rel="manifest"
+          crossOrigin="use-credentials"
+          href="/static/manifest.json"
+        />
+        <link
+          rel="mask-icon"
+          href="/static/icons/question@128.png"
+          color="#5bbad5"
+        />
+        <link rel="shortcut icon" href="../../public/favicon.ico" />
+        <meta name="twitter:card" content="summary" />
+        <meta
+          name="twitter:url"
+          content="https://dontaskjustask-d9hdboq4e.vercel.app/"
+        />
+        <meta name="twitter:title" content="PWA App" />
+        <meta name="twitter:description" content="Best PWA App in the world" />
+        <meta name="twitter:image" content="../../public/favicon.ico" />
+        <meta name="twitter:creator" content="@DavidWShadow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="PWA App" />
+        <meta property="og:description" content="Best PWA App in the world" />
+        <meta property="og:site_name" content="PWA App" />
+        <meta
+          property="og:url"
+          content="https://dontaskjustask-d9hdboq4e.vercel.app/"
+        />
+        <meta property="og:image" content="../../public/favicon.ico" />
       </Head>
 
       <S.progress className="progress-container">
@@ -217,9 +258,9 @@ export default function Home() {
       </S.main>
 
       <S.footer>
-        NPASAP@{year}
+        NPASAP@{year || ''}
         <a
-          href="https://github.com/users/rwietter"
+          href="https://github.com/rwietter/dontaskjustask"
           target="_blank"
           without="true"
           rel="noopener noreferrer">
