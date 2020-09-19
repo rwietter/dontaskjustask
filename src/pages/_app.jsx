@@ -19,8 +19,8 @@ function App({ Component, pageProps }) {
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
+      <Header theme={theme} toggleTheme={toggleTheme} />
       <S.container>
-        <Header theme={theme} toggleTheme={toggleTheme} />
         <Component {...pageProps} />
       </S.container>
     </ThemeProvider>

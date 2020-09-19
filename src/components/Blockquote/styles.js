@@ -46,7 +46,6 @@ const Blockquote = styled.blockquote`
       left: 8px;
     }
     &::after {
-      top: ${({ id }) => (id === 'question' ? '10rem' : '55px')};
       padding-left: 20px;
     }
   }

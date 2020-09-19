@@ -2,15 +2,26 @@
 import { createGlobalStyle } from 'styled-components';
 
 import Inter_Regular from '../fonts/Inter_Web/Inter-Regular.woff2';
-import Inter_SemiBold from '../fonts/Inter_Web/Inter-SemiBold.woff2';
-import Inter_Bold from '../fonts/Inter_Web/Inter-Bold.woff2';
+import Inter_SemiBold from '../fonts/Inter_Web/Inter-Regular.woff2';
+import Montserrat_Black from '../fonts/Montserrat/Montserrat-Bold.ttf'
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
+    font-family: 'Montserrat';
+    src: url(${Montserrat_Black});
+    src: url('${Montserrat_Black}?#iefix') format('embedded-opentype'),
+        url(${Montserrat_Black}) format('woff2'),
+        url(${Montserrat_Black}) format('woff'),
+        url(${Montserrat_Black})  format('truetype'),
+  }
+  
+  @font-face {
     font-family: 'Inter';
-    src: url(${Inter_Regular}) format('woff2'),
-    url(${Inter_SemiBold}) format('woff2'),
-    url(${Inter_Bold}) format('woff2')
+    src: url(${Inter_SemiBold});
+    src: url('${Inter_SemiBold}?#iefix') format('embedded-opentype'),
+        url(${Inter_SemiBold}) format('woff2'),
+        url(${Inter_SemiBold}) format('woff'),
+        url(${Inter_SemiBold})  format('truetype'),
   }
   
   *,
@@ -49,13 +60,23 @@ const GlobalStyles = createGlobalStyle`
 
   ::-webkit-scrollbar-thumb:vertical,
   ::-webkit-scrollbar-thumb:horizontal {
-    background: #df7296;
+    background-color: #df7296;
     border-radius: 10rem;
   }
 
   ::-webkit-scrollbar-thumb:vertical:hover,
   ::-webkit-scrollbar-thumb:horizontal:hover {
-    background: #c14c6f;
+    background-color: #c14c6f;
+  }
+
+  ::-moz-selection { /* Code for Firefox */
+    color: ${({ theme }) => theme.select};
+    background: ${({ theme }) => theme.body};
+  }
+
+  ::selection {
+    color: ${({ theme }) => theme.select};
+    background: ${({ theme }) => theme.body};
   }
 
 `;
