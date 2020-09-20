@@ -5,14 +5,12 @@ import { func, string } from 'prop-types';
 
 function Header({ theme, toggleTheme }) {
   return (
-    <S.container>
       <S.header>
         <h1>
-          Não peça se alguém sabe, <h2>apenas pergunte</h2>
+          Não peça se alguém sabe, <span>apenas pergunte</span>
         </h1>
         <TogglerTheme theme={theme} toggleTheme={toggleTheme}></TogglerTheme>
       </S.header>
-    </S.container>
   );
 }
 

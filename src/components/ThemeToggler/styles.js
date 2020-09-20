@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const ToggleContainer = styled.button`
   background: ${({ theme }) => theme.toggle};
   border: none;
-  margin: 2rem 0 0 1rem;
   outline: 0;
   border-radius: 2rem;
   cursor: pointer;

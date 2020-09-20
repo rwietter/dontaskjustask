@@ -10,6 +10,7 @@ import * as S from '../styles/styles';
 
 function App({ Component, pageProps }) {
   const [theme, toggleTheme, componentMounted] = UseDarkMode();
+  console.log(theme, toggleTheme, componentMounted)
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
   if (!componentMounted) {

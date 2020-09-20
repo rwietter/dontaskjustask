@@ -9,7 +9,7 @@ export default function Home() {
   const [year, setYear] = useState(0);
 
   const progressBar = () => document.querySelector('#statusbar');
-
+  
   useEffect(() => {
     const dateYear = new Date().getFullYear();
     setYear(dateYear);
@@ -23,8 +23,7 @@ export default function Home() {
 
   function calcHeight() {
     const { scrollTop, clientHeight, scrollHeight } = document?.documentElement;
-    const { scrollY } = window;
-    const winScroll = scrollTop || scrollY;
+    const winScroll = scrollTop || window?.scrollY;
     const height = scrollHeight - clientHeight;
     const scrolled = Math.ceil((winScroll / height) * 100);
 

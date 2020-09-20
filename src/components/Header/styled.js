@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
-const container = styled.div`
-`;
-
 const header = styled.header`
   display: flex;
-  padding: 20px 10px 0 10px;
+  padding: 40px 10px 0 10px;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
@@ -17,7 +14,8 @@ const header = styled.header`
     padding: 20px 10px 0 0;
   }
 
-  h1, h2 {
+  h1,
+  span {
     margin: 0 0 0 0;
     font-size: clamp(19px, 2vw, 1.6rem);
     font-family: ${({ theme }) => theme.fontPrimary};
@@ -28,11 +26,12 @@ const header = styled.header`
       line-height: 2.3rem;
     }
   }
-  h2 {
+  span {
     margin: 0;
     padding: 0;
+    display: block;
   }
 `;
 
 
-export { container, header };
+export { header };

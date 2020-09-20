@@ -112,7 +112,7 @@ const progress = styled.div`
   span {
     height: 8px;
     background: #333333;
-    transition: background-image 0.3s ease;
+    transition: all 0.05s ease-in;
     background: ${({ theme }) => theme.gradient};
     width: 0%;
     position: fixed;
